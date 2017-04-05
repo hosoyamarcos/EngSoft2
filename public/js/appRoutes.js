@@ -1,23 +1,53 @@
-angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+// angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+//
+// 	$routeProvider
+//
+// 		// home page
+// 		.when('/', {
+// 			templateUrl: 'views/home.html',
+// 			controller: 'MainController'
+// 		})
+//
+// 		.when('/nerds', {
+// 			templateUrl: 'views/nerd.html',
+// 			controller: 'NerdController'
+// 		})
+//
+// 		.when('/geeks', {
+// 			templateUrl: 'views/geek.html',
+// 			controller: 'GeekController'
+// 		});
+//
+// 	$locationProvider.html5Mode(true);
+//
+// }]);
 
-	$routeProvider
+var routerApp = angular.module('appRoutes', ['ui.router']);
 
-		// home page
-		.when('/', {
+routerApp.config(function($stateProvider, $urlRouterProvider) {
+
+	$urlRouterProvider.otherwise('/');
+
+	$stateProvider
+
+	// HOME STATES AND NESTED VIEWS ========================================
+		.state('home', {
+			url: '/',
 			templateUrl: 'views/home.html',
-			controller: 'MainController'
+			controller: "MainController"
 		})
 
-		.when('/nerds', {
-			templateUrl: 'views/nerd.html',
-			controller: 'NerdController'
+		// ABOUT PAGE AND MULTIPLE NAMED VIEWS =================================
+		.state('nerds', {
+			url: "/nerds",
+			templateUrl: "views/nerd.html",
+			controller: "NerdController"
 		})
 
-		.when('/geeks', {
-			templateUrl: 'views/geek.html',
-			controller: 'GeekController'	
+		.state('mail', {
+			url: "/mail",
+			templateUrl: "views/mail.html",
+			controller: "MailController"
 		});
 
-	$locationProvider.html5Mode(true);
-
-}]);
+});

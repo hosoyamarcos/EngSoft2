@@ -1,3 +1,5 @@
+const nodemailer = require('nodemailer');
+
 module.exports = function(app) {
 
 	// server routes ===========================================================
@@ -6,8 +8,13 @@ module.exports = function(app) {
 
 	// frontend routes =========================================================
 	// route to handle all angular requests
-	app.get('*', function(req, res) {
+	app.get('/', function(req, res) {
 		res.sendfile('./public/index.html');
+	});
+
+	app.post('/mail', function (req,res) {
+		console.log("hello");
+		res.send("post ok")
 	});
 
 };
