@@ -1,27 +1,34 @@
 /**
  * Created by Hosoya on 05/04/17.
  */
-angular.module('MailCtrl', []).controller('MailController', function($scope) {
+angular.module('MailCtrl', [])
+    .controller('MailController',['$scope', '$http', function($scope, $http) {
+
+    var href = 'http://' + window.location.host;
 
     $scope.sendMail = function () {
-        console.log($scope.mail)
 
         $http({
             method: 'POST',
-            url: '/',
+            url: href + '/mail',
             data: $scope.mail
         }).then(function successCallback(response) {
-            // this callback will be called asynchronously
-            // when the response is available
+
+            if (response.data) {
+                swal("Message sent!", "Your message was sent successfully", "success")
+                $scope.mail = undefined;
+            } else {
+                swal("Ops!", "Try it again", "error")
+            }
 
 
         }, function errorCallback(response) {
             // called asynchronously if an error occurs
             // or server returns response with an error status.
-
+            console.log('error')
 
         });
 
     }
 
-});
+}]);

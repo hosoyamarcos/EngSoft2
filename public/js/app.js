@@ -4,10 +4,7 @@ angular.module(
         'ngRoute',
         'appRoutes',
         'MainCtrl',
-        'NerdCtrl',
         'MailCtrl',
-        'NerdService',
-        'GeekCtrl',
-        'GeekService',
+        'AboutCtrl',    
         'MailService'
     ]);

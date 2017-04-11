@@ -48,6 +48,12 @@ routerApp.config(function($stateProvider, $urlRouterProvider) {
 			url: "/mail",
 			templateUrl: "views/mail.html",
 			controller: "MailController"
+		})
+
+		.state('about', {
+			url: "/about",
+			templateUrl: "views/about.html",
+			controller: "AboutController"
 		});
 
 });

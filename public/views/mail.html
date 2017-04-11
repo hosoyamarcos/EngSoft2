@@ -1,15 +1,14 @@
 <div class="jumbotron">
     <h2><i class="fa fa-envelope" aria-hidden="true"></i> Message Page</h2>
-    <p>Write a message here to communicate with your customer/supplier</p>
-
+    <p>Write a message here to communicate with your customer, service supplier or material supplier</p>
 
     <form>
         <div class="form-group"><label>From:</label>
-            <input type="email" class="form-control" placeholder="From ..." ng-model="mail.from">
+            <input type="email" class="form-control" placeholder="From ... (email)" ng-model="mail.from">
         </div>
         <div class="form-group">
             <label>To:</label>
-            <input type="email" class="form-control" placeholder="To ..." ng-model="mail.to">
+            <input type="email" class="form-control" placeholder="To ... (email)" ng-model="mail.to">
         </div>
         <div class="form-group">
             <label>Subject:</label>
@@ -17,9 +16,9 @@
         </div>
         <div class="form-group">
             <label>Message:</label>
-            <textarea class="form-control" rows="10" placeholder="Write here your message ..." ng-model="mail.message"></textarea>
+            <textarea class="form-control" rows="10" placeholder="Write here your message ..." ng-model="mail.text"></textarea>
         </div>
 
-        <button type="submit" class="btn btn-default" ng-click="sendMail()">Submit</button>
+        <button type="submit" class="btn btn-primary" ng-click="sendMail()">Send message</button>
     </form>
 </div>
